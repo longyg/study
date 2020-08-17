@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Install mysql for hive
+
+#命令1
+sudo apt-get update
+#命令2
+sudo apt-get install mysql-server
+
+sudo mysql_secure_installation
+
+systemctl status mysql.service
+
+sudo mysql -uroot -p
+grant all on *.* to root@'%' identified by 'root' with grant option;
+flush privileges;
+
+
+vim /etc/mysql/mysql.conf.d/mysqld.cnf
+# 注释掉bind-address          = 127.0.0.1
+
+systemctl restart mysql
+
+# create new database
+mysql -u root -p
+create database hive;
+# create new user
+grant all on hive.* to hive@'%' identified by 'hive' with grant option;
+

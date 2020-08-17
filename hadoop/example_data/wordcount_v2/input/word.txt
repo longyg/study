@@ -1,0 +1,9 @@
+The second version of WordCount improves upon the previous one by using some features offered by the MapReduce framework:
+
+Demonstrates how applications can access configuration parameters in the setup method of the Mapper (and Reducer) implementations.
+
+Demonstrates how the DistributedCache can be used to distribute read-only data needed by the jobs. Here it allows the user to specify word-patterns to skip while counting.
+
+Demonstrates the utility of the GenericOptionsParser to handle generic Hadoop command-line options.
+
+Demonstrates how applications can use Counters and how they can set application-specific status information passed to the map (and reduce) method.

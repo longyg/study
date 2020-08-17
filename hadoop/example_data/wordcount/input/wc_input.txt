@@ -1,0 +1,3 @@
+hello hadoop
+hello hdfs
+hello mapreduce
