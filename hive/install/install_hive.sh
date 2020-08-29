@@ -15,7 +15,8 @@
 #   - This script must be executed on first namenode node
 #   - This script must be executed as root user
 #   - This script is only tested on Ubuntu 18.04
-#   - Ensure the database (e.g., hive) is dropped before execute this script
+#   - Ensure the database (e.g., hive) is dropped in MySQL before execute this script
+#   - Hive 3.1.2 is compatable with Hadoop 3.x.y
 #
 #########################################
 HIVE_USER_NAME="bigdata"

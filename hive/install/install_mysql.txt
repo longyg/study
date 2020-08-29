@@ -12,7 +12,7 @@ sudo mysql_secure_installation
 systemctl status mysql.service
 
 sudo mysql -uroot -p
-grant all on *.* to root@'%' identified by 'root' with grant option;
+grant all privileges on *.* to root@'%' identified by 'root' with grant option;
 flush privileges;
 
 
@@ -25,5 +25,5 @@ systemctl restart mysql
 mysql -u root -p
 create database hive;
 # create new user
-grant all on hive.* to hive@'%' identified by 'hive' with grant option;
-
+grant all privileges on hive.* to hive@'%' identified by 'hive' with grant option;
+flush privileges;

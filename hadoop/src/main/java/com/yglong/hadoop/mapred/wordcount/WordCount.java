@@ -61,10 +61,10 @@ public class WordCount {
 //        conf.set("mapreduce.app-submission.cross-platform", "true");
 
         // 如果在windows本地执行MR程序，必须将mapreduce.framework.name设置为local
-        conf.set("mapreduce.framework.name", "local");
+//        conf.set("mapreduce.framework.name", "local");
         // 有些版本也需要将fs.defaultFS设置为file:///，让MR程序查找本地路径，而不是HDFS路径
         // 经测试，hadoop-3.2.1必须设置
-        conf.set("fs.defaultFS", "file:///");
+//        conf.set("fs.defaultFS", "file:///");
 
         /**
          * 注意：
