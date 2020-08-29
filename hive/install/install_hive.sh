@@ -72,6 +72,16 @@ cp -f /opt/software/hadoop/share/hadoop/common/lib/guava-*.jar $HIVE_HOME_DIR/li
 
 chown -R $HIVE_USER_NAME:$HIVE_GROUP_NAME $HIVE_HOME_DIR
 
+# 初始化数据库前，需要删除已存在的hive表
+echo "Try to drop existing hive table in MySQL..."
+mysql -uroot -proot << EOF
+drop database if exists hive;
+EOF
+
+echo "Initializing mysql schema..."
 su - $HBASE_USER_NAME -c "schematool -dbType mysql -initSchema"
 
 su - $HBASE_USER_NAME -c "hive --version"
+
+echo "Starting hiveserver2..."
+su - $HBASE_USER_NAME -c "nohup hive --service hiveserver2 >/dev/null 2>&1 &"
