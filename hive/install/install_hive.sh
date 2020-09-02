@@ -1,22 +1,21 @@
 #!/bin/bash
 #########################################
 #
-# Install hive 3
+# Install hive 3.1.2 and start hiveserver2
 #
 # Prerequisites:
 #   - Hadoop is installed and running
-#	- JDK is installed and JAVA_HOME env is configured
-#   - MYSQL is installed and dedicated user/password (e.g., hive) is created
+#	  - JDK is installed and JAVA_HOME env is configured
+#   - MYSQL is installed and dedicated meta database is created (e.g., hive) and user/password (e.g., hive) is created
 #   - hostname is configured for every node
-#	- ssh login without password between all nodes is configured for both
-#	  root and non-root user
+#	  - ssh login without password between all nodes is configured for both
+#	    root and non-root user
 #
 # Note:
-#   - This script must be executed on first namenode node
+#   - This script must be executed on first namenode
 #   - This script must be executed as root user
 #   - This script is only tested on Ubuntu 18.04
-#   - Ensure the database (e.g., hive) is dropped in MySQL before execute this script
-#   - Hive 3.1.2 is compatable with Hadoop 3.x.y
+#   - Hive 3.1.2 is compatible with Hadoop 3.x.y
 #
 #########################################
 HIVE_USER_NAME="bigdata"

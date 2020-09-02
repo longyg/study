@@ -2,15 +2,15 @@
 
 #########################################
 #
-# Install and start hadoop 3.x fully distributed cluster
+# Install and start hadoop 3.2.1 fully distributed cluster
 # Also NameNode HA and ResourceManager HA are both enabled
 #
 # Prerequisites:
-#	- JDK is installed and JAVA_HOME env is configured
+#	  - JDK is installed and JAVA_HOME env is configured
 #   - Zookeeper cluster is running
 #   - hostname is configured for every node
-#	- ssh login without password between all nodes is configured for both
-#	  root and non-root user
+#	  - ssh login without password between all nodes is configured for both
+#	    root and non-root user
 #
 # Note:
 #   - This script must be executed on first node, e.g. bigdata01
