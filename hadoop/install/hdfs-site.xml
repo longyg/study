@@ -117,10 +117,11 @@
         <name>dfs.blocksize</name>
         <value>67108864</value>
     </property>
-    <!-- RPC服务器的监听client线程数 -->
+    <!-- RPC服务器的监听client线程数， 默认为10-->
+    <!-- 一般为 20 * log(datanode个数) -->
     <property>
         <name>dfs.namenode.handler.count</name>
-        <value>64</value>
+        <value>22</value>
     </property>
     <!-- datanode进行传输数据的最大线程数 -->
     <property>
