@@ -4,10 +4,10 @@
 # Install hive 3.1.2 and start hiveserver2
 #
 # Prerequisites:
-#   - Hadoop is installed and running
+#     - Hadoop is installed and running
 #	  - JDK is installed and JAVA_HOME env is configured
-#   - MYSQL is installed and dedicated meta database is created (e.g., hive) and user/password (e.g., hive) is created
-#   - hostname is configured for every node
+#     - MYSQL is installed and dedicated meta database is created (e.g., hive) and user/password (e.g., hive) is created
+#     - hostname is configured for every node
 #	  - ssh login without password between all nodes is configured for both
 #	    root and non-root user
 #

@@ -125,7 +125,3 @@ for node in ${ZK_NODES[@]}; do
 	echo "Starting zookeeper on $node..."
 	ssh $node "su - $ZK_USER_NAME -c \"zkServer.sh start\""
 done
-
-
-
-

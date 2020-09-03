@@ -6,18 +6,18 @@
 #
 # Prerequisites:
 #	  - JDK is installed and JAVA_HOME env is configured
-#   - hostname is configured for every node
+#     - hostname is configured for every node
 #	  - ssh login without password between all nodes is configured for both
 #	    root and non-root user
 #
 # Note:
-#   - This script must be executed on first flume node, e.g. bigdata02
+#   - This script must be executed on first flume node, e.g. bigdata01
 #   - This script must be executed as root user
 #   - This script is only tested on Ubuntu 18.04
 #
 #########################################
 # only install on two nodes
-FLUME_NODES=("bigdata02" "bigdata03")
+FLUME_NODES=("bigdata01" "bigdata02" "bigdata03")
 FLUME_USER_NAME="bigdata"
 FLUME_GROUP_NAME="bigdata"
 JAVA_HOME_DIR=$(echo $JAVA_HOME)
@@ -30,7 +30,7 @@ echo "Downloading flume..."
 mkdir -p $DOWNLOAD_DIR
 cd $DOWNLOAD_DIR
 if [ ! -f apache-flume-*.tar.gz ]; then
-	wget https://mirrors.tuna.tsinghua.edu.cn/apache/flume/1.9.0/apache-flume-1.9.0-bin.tar.gz
+	wget https://www.nic.funet.fi/pub/mirrors/apache.org/flume/1.9.0/apache-flume-1.9.0-bin.tar.gz
 fi
 
 if [ ! -f apache-flume-*.tar.gz ]; then
@@ -59,8 +59,8 @@ fi
 echo $FLUME_HOME
 
 echo "Configuring flume-env.sh..."
-mv $HADOOP_HOME_DIR/conf/flume-env.sh.template $HADOOP_HOME_DIR/conf/flume-env.sh
-echo "export JAVA_HOME=$JAVA_HOME_DIR" >> $HADOOP_HOME_DIR/conf/flume-env.sh
+mv $FLUME_HOME_DIR/conf/flume-env.sh.template $FLUME_HOME_DIR/conf/flume-env.sh
+echo "export JAVA_HOME=$JAVA_HOME_DIR" >> $FLUME_HOME_DIR/conf/flume-env.sh
 
 
 # configure on other flume node

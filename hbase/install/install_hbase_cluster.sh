@@ -4,10 +4,10 @@
 # Install and start hbase 2.2.5 fully distributed cluster
 #
 # Prerequisites:
-#   - Hadoop is installed and running
+#     - Hadoop is installed and running
 #	  - JDK is installed and JAVA_HOME env is configured
-#   - External zookeeper cluster is used, so zookeeper cluster must be firstly installed and running
-#   - hostname is configured for every node
+#     - External zookeeper cluster is used, so zookeeper cluster must be firstly installed and running
+#     - hostname is configured for every node
 #	  - ssh login without password between all nodes is configured for both
 #	    root and non-root user
 #

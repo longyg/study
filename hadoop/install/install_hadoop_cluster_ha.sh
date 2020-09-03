@@ -7,8 +7,8 @@
 #
 # Prerequisites:
 #	  - JDK is installed and JAVA_HOME env is configured
-#   - Zookeeper cluster is running
-#   - hostname is configured for every node
+#     - Zookeeper cluster is running
+#     - hostname is configured for every node
 #	  - ssh login without password between all nodes is configured for both
 #	    root and non-root user
 #
