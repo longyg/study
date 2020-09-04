@@ -78,9 +78,9 @@ drop database if exists hive;
 EOF
 
 echo "Initializing mysql schema..."
-su - $HBASE_USER_NAME -c "schematool -dbType mysql -initSchema"
+su - $HIVE_USER_NAME -c "schematool -dbType mysql -initSchema"
 
-su - $HBASE_USER_NAME -c "hive --version"
+su - $HIVE_USER_NAME -c "hive --version"
 
 echo "Starting hiveserver2..."
-su - $HBASE_USER_NAME -c "nohup hive --service hiveserver2 >/dev/null 2>&1 &"
+su - $HIVE_USER_NAME -c "nohup hive --service hiveserver2 >/dev/null 2>&1 &"

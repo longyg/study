@@ -10,7 +10,7 @@ public class HiveJdbcTest {
     public static void main(String[] args) throws Exception {
         Class.forName("org.apache.hive.jdbc.HiveDriver");
         Connection connection = DriverManager.getConnection(
-                "jdbc:hive2://bigdata01:10000/test", "bigdata", "bigdata");
+                "jdbc:hive2://bigdata01:10000/default", "bigdata", "bigdata");
         Statement statement = connection.createStatement();
         String sql = "select * from person";
         ResultSet resultSet = statement.executeQuery(sql);
