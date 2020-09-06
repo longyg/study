@@ -16,13 +16,13 @@ grant all privileges on *.* to root@'%' identified by 'root' with grant option;
 flush privileges;
 
 
-vim /etc/mysql/mysql.conf.d/mysqld.cnf
+sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 # 注释掉bind-address          = 127.0.0.1
 
-systemctl restart mysql
+sudo systemctl restart mysql
 
 # create new database
-mysql -u root -p
+sudo mysql -u root -p
 create database hive;
 # create new user
 grant all privileges on hive.* to hive@'%' identified by 'hive' with grant option;
