@@ -1,0 +1,11 @@
+sqoop import \
+--connect jdbc:mysql://bigdata01:3306/gmall \
+--username root \
+--password root \
+--target-dir /origin_data/gmall/db/order_info \
+--delete-target-dir \
+--query "select id,final_total_amount,order_status,user_id,out_trade_no,create_time,operate_time,province_id,benefit_reduce_amount,original_total_amount,feight_fee from order_info where \$CONDITIONS" \
+--num-mappers 1 \
+--fields-terminated-by '\t' \
+--null-string '\\N' \
+--null-non-string '\\N'
