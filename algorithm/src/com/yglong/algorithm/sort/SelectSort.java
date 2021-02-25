@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 public class SelectSort {
     // 最暴力的排序方法，每一趟比较所有数
-    public static void sort(int[] a) {
+    public static void sort1(int[] a) {
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a.length; j++) {
                 if (a[i] < a[j]) {
@@ -34,7 +34,7 @@ public class SelectSort {
     }
 
     // 避免无用的交换
-    public static void sort3(int[] a) {
+    public static void sort(int[] a) {
         for (int i = 0; i < a.length; i++) {
             int minIndex = i; // 存储每一趟比较后最小的那个数的位置
             // 找到比idx小的最小那一个
@@ -53,7 +53,7 @@ public class SelectSort {
 
     public static void main(String[] args) {
         int[] a = new int[] {2, 3, 1, 0, 4, 6, 8};
-        sort(a);
+        sort1(a);
         System.out.println(Arrays.toString(a));
 
         int[] b = new int[] {2, 3, 10, 0, 4, 6, 8};
@@ -61,7 +61,7 @@ public class SelectSort {
         System.out.println(Arrays.toString(b));
 
         int[] c = new int[] {2, 3, 10, 1, 4, 6, 8};
-        sort3(c);
+        sort(c);
         System.out.println(Arrays.toString(c));
     }
 }

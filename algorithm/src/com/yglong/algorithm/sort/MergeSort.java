@@ -12,7 +12,7 @@ import java.util.Arrays;
  * 2. 治：对以排好序的子序列进行合并排序
  */
 public class MergeSort {
-    public static void mergeSort(int[] arr) {
+    public static void sort(int[] arr) {
         int[] temp = new int[arr.length];
         sort(arr, 0, arr.length - 1, temp);
     }
@@ -52,7 +52,7 @@ public class MergeSort {
 
     public static void main(String[] args) {
         int[] a = new int[]{2, 3, 1, 0, 4, 6, 8};
-        mergeSort(a);
+        sort(a);
         System.out.println(Arrays.toString(a));
     }
 }

@@ -11,7 +11,7 @@ import java.util.Arrays;
  */
 public class ShellSort {
 
-    public static void shellSort(int[] arr) {
+    public static void sort(int[] arr) {
         for (int gap = arr.length / 2; gap > 0; gap /= 2) {
             for (int i = gap; i < arr.length; i++) {
                 int j = i;
@@ -27,7 +27,7 @@ public class ShellSort {
 
     public static void main(String[] args) {
         int[] a = new int[]{2, 3, 1, 0, 4, 6, 8};
-        shellSort(a);
+        sort(a);
         System.out.println(Arrays.toString(a));
     }
 }

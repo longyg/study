@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 public class InsertSort {
 
-    public static void insertSort(int[] arr) {
+    public static void sort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             int j = i;
             while (j > 0 && arr[j] < arr[j - 1]) {
@@ -22,7 +22,7 @@ public class InsertSort {
 
     public static void main(String[] args) {
         int[] a = new int[] {2, 3, 1, 0, 4, 6, 8};
-        insertSort(a);
+        sort(a);
         System.out.println(Arrays.toString(a));
     }
 }
