@@ -1,6 +1,7 @@
 package com.yglong.algorithm.sort.test;
 
 import com.yglong.algorithm.sort.*;
+import com.yglong.algorithm.sort.util.StopWatch;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -23,6 +24,9 @@ public class Test {
         // 快速排序
         test(QuickSort.class);
 
+        // 双路快速排序
+        test(DualQuickSort.class);
+
         // 选择排序
         test(SelectSort.class);
 
@@ -31,10 +35,11 @@ public class Test {
     }
 
     private static void test(Class clazz) throws Exception {
-        int[] arr = getRandomArray(10);
+        int[] arr = getRandomArray(100);
         Method sortMethod = clazz.getDeclaredMethod("sort", int[].class);
+        StopWatch stopWatch = new StopWatch();
         sortMethod.invoke(null, arr);
-        System.out.println(clazz.getSimpleName() + ": " + Arrays.toString(arr));
+        System.out.println(clazz.getSimpleName() + ": " + Arrays.toString(arr) + ", time: " + stopWatch.end());
     }
 
     public static int[] getRandomArray(int length) {
