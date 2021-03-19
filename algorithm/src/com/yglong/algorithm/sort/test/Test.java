@@ -35,7 +35,7 @@ public class Test {
     }
 
     private static void test(Class clazz) throws Exception {
-        int[] arr = getRandomArray(100);
+        int[] arr = getRandomArray(10);
         Method sortMethod = clazz.getDeclaredMethod("sort", int[].class);
         StopWatch stopWatch = new StopWatch();
         sortMethod.invoke(null, arr);
