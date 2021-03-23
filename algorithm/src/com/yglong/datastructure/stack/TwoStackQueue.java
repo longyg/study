@@ -1,4 +1,4 @@
-package com.yglong.datastructure;
+package com.yglong.datastructure.stack;
 
 import java.util.Stack;
 

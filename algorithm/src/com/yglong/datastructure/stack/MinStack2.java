@@ -1,19 +1,15 @@
-package com.yglong.datastructure;
+package com.yglong.datastructure.stack;
 
 import java.util.Stack;
 
-/**
- * 构造一个自定义栈，使得获取栈的最小值的时间复杂度为O(1)
- * <p>
- * 使用两个栈，其中一个栈用于保存最小值
- */
-public class MinStack<E extends Comparable<E>> {
+public class MinStack2<E extends Comparable<E>> {
+
     // 用于存储所有数据
     private Stack<E> stack;
     // 用于存储最小值
     private Stack<E> minStack;
 
-    public MinStack() {
+    public MinStack2() {
         this.stack = new Stack<>();
         this.minStack = new Stack<>();
     }
@@ -23,10 +19,8 @@ public class MinStack<E extends Comparable<E>> {
         if (minStack.isEmpty()) {
             minStack.push(e);
         } else {
-            E e1 = minStack.peek();
-            if (e1.compareTo(e) < 0) {
-                minStack.push(e1);
-            } else {
+            E minE = minStack.peek();
+            if (e.compareTo(minE) <= 0) {
                 minStack.push(e);
             }
         }
@@ -36,8 +30,11 @@ public class MinStack<E extends Comparable<E>> {
         if (stack.isEmpty()) {
             throw new RuntimeException("Stack is empty");
         }
-        minStack.pop();
-        return stack.pop();
+        E e = stack.pop();
+        if (e.compareTo(getMin()) == 0) {
+            minStack.pop();
+        }
+        return e;
     }
 
     public E getMin() {
@@ -48,7 +45,7 @@ public class MinStack<E extends Comparable<E>> {
     }
 
     public static void main(String[] args) {
-        MinStack<Integer> stack = new MinStack<>();
+        MinStack2<Integer> stack = new MinStack2<>();
         stack.push(5);
         stack.push(2);
         stack.push(1);
@@ -69,10 +66,5 @@ public class MinStack<E extends Comparable<E>> {
 
         System.out.println(stack.pop());
         System.out.println(stack.getMin());
-
-        stack.pop();
-        stack.pop();
-        stack.pop();
-        stack.pop();
     }
 }

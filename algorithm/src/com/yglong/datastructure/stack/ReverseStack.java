@@ -1,8 +1,8 @@
-package com.yglong.datastructure;
+package com.yglong.datastructure.stack;
 
 import java.util.Stack;
 
-public class StackT {
+public class ReverseStack {
     public static <E> E getAndRemoveLastElement(Stack<E> stack) {
         E e = stack.pop();
         if (!stack.isEmpty()) {
@@ -14,12 +14,12 @@ public class StackT {
         }
     }
 
-    public static <E> void reverseS(Stack<E> stack) {
+    public static <E> void reverse(Stack<E> stack) {
         if (stack.isEmpty()) {
             return;
         }
         E e1 = getAndRemoveLastElement(stack);
-        reverseS(stack);
+        reverse(stack);
         stack.push(e1);
     }
 
@@ -31,7 +31,7 @@ public class StackT {
         s.push(2);
         s.push(1);
 
-        reverseS(s);
+        reverse(s);
 
         while (!s.isEmpty()) {
             System.out.println(s.pop());

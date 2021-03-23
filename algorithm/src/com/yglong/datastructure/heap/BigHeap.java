@@ -1,4 +1,4 @@
-package com.yglong.datastructure;
+package com.yglong.datastructure.heap;
 
 import com.yglong.algorithm.sort.util.Util;
 
@@ -6,6 +6,8 @@ import java.util.Arrays;
 
 /**
  * 大顶堆
+ * <p>
+ * 用数组实现堆
  */
 public class BigHeap {
     private int[] array;
