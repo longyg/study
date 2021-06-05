@@ -1,5 +1,7 @@
 package com.yglong.leetcode.dailypractice;
 
+import com.yglong.leetcode.dailypractice.entity.ListNode;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -170,16 +172,6 @@ public class Day_2021_06_04 {
             }
         }
         return true;
-    }
-}
-
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-        next = null;
     }
 }
 
