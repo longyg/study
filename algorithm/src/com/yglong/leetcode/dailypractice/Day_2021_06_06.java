@@ -19,6 +19,9 @@ public class Day_2021_06_06 {
         System.out.println(findMaxForm(strs, 6, 3));
     }
 
+    /**
+     * 动态规划
+     */
     public static int findMaxForm(String[] strs, int m, int n) {
         int length = strs.length;
         int[][][] dp = new int[length + 1][m + 1][n + 1];
