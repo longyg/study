@@ -48,8 +48,8 @@ public class Day_2021_06_21 {
 
     public static List<String> readBinaryWatch(int turnedOn) {
         List<String> l = new ArrayList<>();
-        for (int i = 0; i < 12; i++) {
-            for (int j = 0; j < 60; j++) {
+        for (int i = 0; i < 12; i++) { // 时钟
+            for (int j = 0; j < 60; j++) { // 分钟
                 if (Integer.bitCount(i) + Integer.bitCount(j) == turnedOn) {
                     l.add(i + ":" + (j < 10 ? "0" : "") + j);
                 }
@@ -60,7 +60,7 @@ public class Day_2021_06_21 {
 
     public static List<String> readBinaryWatch2(int turnedOn) {
         List<String> l = new ArrayList<>();
-        for (int i = 0; i < 1024; i++) {
+        for (int i = 0; i < 1024; i++) { // 10个灯总共可以表示1024个数
             int h = i >> 6;
             int m = i & 63;
             if (h < 12 && m < 60 && Integer.bitCount(h) + Integer.bitCount(m) == turnedOn) {
