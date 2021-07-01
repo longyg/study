@@ -1,6 +1,8 @@
 package com.yglong.leetcode.dailypractice;
 
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -24,87 +26,56 @@ public class Day_2021_06_30 {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         TreeNode left = new TreeNode(2);
-//        TreeNode right = new TreeNode(3);
-//        TreeNode left2 = new TreeNode(4);
-//        TreeNode right2 = new TreeNode(5);
+        TreeNode right = new TreeNode(3);
+        TreeNode left2 = new TreeNode(4);
+        TreeNode right2 = new TreeNode(5);
         root.right = left;
-//        root.right = right;
-//
-//        right.left = left2;
-//        right.right = right2;
+        root.right = right;
+
+        right.left = left2;
+        right.right = right2;
 
         String s = serialize(root);
         System.out.println(s);
         TreeNode n = deserialize(s);
         System.out.println(n);
+
+
     }
 
     // Encodes a tree to a single string.
     public static String serialize(TreeNode root) {
+        return rserialize(root, "");
+    }
+
+    private static String rserialize(TreeNode root, String ret) {
         if (root == null) {
-            return "";
+            ret += "null,";
+        } else {
+            ret += root.val + ",";
+            ret = rserialize(root.left, ret);
+            ret = rserialize(root.right, ret);
         }
-        StringBuilder sb = new StringBuilder();
-        sb.append(root.val);
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                TreeNode node = queue.poll();
-                if (node.left == null) {
-                    sb.append(queue.size() > 0 ? ",null" : "");
-                } else {
-                    sb.append(",").append(node.left.val);
-                    queue.offer(node.left);
-                }
-
-                if (node.right == null) {
-                    sb.append(queue.size() > 0 ? ",null" : "");
-                } else {
-                    sb.append(",").append(node.right.val);
-                    queue.offer(node.right);
-                }
-            }
-        }
-        return sb.toString();
+        return ret;
     }
 
     // Decodes your encoded data to tree.
     public static TreeNode deserialize(String data) {
-        if (data.equals("")) {
+        String[] split = data.split(",");
+        List<String> list = new LinkedList<>(Arrays.asList(split));
+        return rdeserialize(list);
+    }
+
+    private static TreeNode rdeserialize(List<String> dataList) {
+        if (dataList.get(0).equals("null")) {
+            dataList.remove(0);
             return null;
         }
 
-        String[] strs = data.split(",");
-        if (strs.length == 1) {
-            return new TreeNode(Integer.parseInt(data.trim()));
-        }
-
-        TreeNode root = new TreeNode(Integer.parseInt(strs[0].trim()));
-
-        int h = (int) Math.sqrt(strs.length + 1);
-        TreeNode[] nodes = new TreeNode[strs.length];
-        nodes[0] = root;
-        for (int i = 0; i <= h; i++) {
-            int l = 2 * i + 1;
-            if (l >= strs.length) {
-                break;
-            }
-            TreeNode node = nodes[i];
-            if (node == null) continue;
-            String left = strs[l].trim();
-            String right = strs[l + 1].trim();
-            if (!left.equals("null")) {
-                node.left = new TreeNode(Integer.parseInt(left));
-                nodes[l] = node.left;
-            }
-            if (!right.equals("null")) {
-                node.right = new TreeNode(Integer.parseInt(right));
-                nodes[l + 1] = node.right;
-            }
-        }
+        TreeNode root = new TreeNode(Integer.parseInt(dataList.get(0)));
+        dataList.remove(0);
+        root.left = rdeserialize(dataList);
+        root.right = rdeserialize(dataList);
 
         return root;
     }
