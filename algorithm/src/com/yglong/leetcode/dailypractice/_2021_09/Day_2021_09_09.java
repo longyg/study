@@ -70,7 +70,9 @@ public class Day_2021_09_09 {
             for (int i = start; i < end; i++) {
                 sb.append(arr[i]).append(" ");
             }
-            sb.append(" ".repeat(Math.max(0, maxWidth - sb.length())));
+            for (int i = 0; i < maxWidth - sb.length(); i++) {
+                sb.append(" ");
+            }
         } else {
             // 需要补空格的槽位个数
             int slot = end - start - 1;
@@ -85,7 +87,9 @@ public class Day_2021_09_09 {
                 if (i != slot) {
                     sb.append(" ");
                     if (p > 0) {
-                        sb.append(" ".repeat(p));
+                        for (int j = 0; j < p; j++) {
+                            sb.append(" ");
+                        }
                     }
                     if (y > 0) {
                         sb.append(" ");
