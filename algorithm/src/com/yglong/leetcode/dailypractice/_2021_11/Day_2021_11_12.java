@@ -30,6 +30,7 @@ public class Day_2021_11_12 {
             int cur = Math.max(dfs(l, i - 1), dfs(i + 1, r)) + i;
             ans = Math.min(ans, cur);
         }
+        cache[l][r] = ans;
         return ans;
     }
 }
