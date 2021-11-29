@@ -1,4 +1,4 @@
-package com.yglong.test;
+package com.yglong.contest;
 
 import org.springframework.util.ClassUtils;
 

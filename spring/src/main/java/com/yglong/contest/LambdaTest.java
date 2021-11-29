@@ -1,4 +1,4 @@
-package com.yglong.test;
+package com.yglong.contest;
 
 public class LambdaTest {
     public static void main(String[] args) {

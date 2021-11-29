@@ -1,4 +1,4 @@
-package com.yglong.test;
+package com.yglong.contest;
 
 import org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext;
 import org.springframework.context.ApplicationContextInitializer;
