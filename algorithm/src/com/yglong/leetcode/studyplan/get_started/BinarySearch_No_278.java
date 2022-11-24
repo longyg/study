@@ -1,4 +1,4 @@
-package com.yglong.leetcode.get_started;
+package com.yglong.leetcode.studyplan.get_started;
 
 /**
  * 278. 第一个错误的版本

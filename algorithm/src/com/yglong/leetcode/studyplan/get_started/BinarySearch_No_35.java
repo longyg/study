@@ -1,4 +1,4 @@
-package com.yglong.leetcode.get_started;
+package com.yglong.leetcode.studyplan.get_started;
 
 /**
  * 35. 搜索插入位置

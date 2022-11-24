@@ -22,8 +22,6 @@ public class BuilderPatternExample2 {
 
 class Director {
     private List<String> sequence = new ArrayList<>();
-    private CarBuilder benzCarBuilder = new BenzCarBuilder();
-    private CarBuilder bmwCarBuilder = new BMWCarBuilder();
 
     public BenzCarModel getABenzModel() {
         this.sequence.clear();
@@ -31,7 +29,7 @@ class Director {
         this.sequence.add("stop");
         this.sequence.add("alarm");
         this.sequence.add("boom");
-        return (BenzCarModel) benzCarBuilder.setSequence(this.sequence).getCarModel();
+        return (BenzCarModel) BenzCarModel.builder().sequence(this.sequence).build();
     }
 
     public BenzCarModel getBBenzModel() {
@@ -40,7 +38,7 @@ class Director {
         this.sequence.add("alarm");
         this.sequence.add("start");
         this.sequence.add("stop");
-        return (BenzCarModel) benzCarBuilder.setSequence(this.sequence).getCarModel();
+        return (BenzCarModel) BenzCarModel.builder().sequence(this.sequence).build();
     }
 
     public BMWCarModel getABMWModel() {
@@ -49,7 +47,7 @@ class Director {
         this.sequence.add("stop");
         this.sequence.add("alarm");
         this.sequence.add("boom");
-        return (BMWCarModel) bmwCarBuilder.setSequence(this.sequence).getCarModel();
+        return (BMWCarModel) BMWCarModel.builder().sequence(this.sequence).build();
     }
 
     public BMWCarModel getBBMWzModel() {
@@ -58,7 +56,7 @@ class Director {
         this.sequence.add("alarm");
         this.sequence.add("start");
         this.sequence.add("stop");
-        return (BMWCarModel) bmwCarBuilder.setSequence(this.sequence).getCarModel();
+        return (BMWCarModel) BMWCarModel.builder().sequence(this.sequence).build();
     }
 }
 
@@ -66,19 +64,18 @@ class Director {
 abstract class CarBuilder {
     protected CarModel carModel;
 
-    public CarBuilder setSequence(List<String> sequence) {
+    public CarBuilder sequence(List<String> sequence) {
         this.carModel.setSequence(sequence);
         return this;
     }
 
-    protected CarModel getCarModel() {
+    protected CarModel build() {
         return carModel;
     }
 }
 
 // 具体建造者
 class BMWCarBuilder extends CarBuilder {
-
     public BMWCarBuilder() {
         carModel = new BMWCarModel();
     }
@@ -131,6 +128,10 @@ abstract class CarModel {
 
 class BMWCarModel extends CarModel {
 
+    public static BMWCarBuilder builder() {
+        return new BMWCarBuilder();
+    }
+
     @Override
     protected void start() {
         System.out.println("BMW starting...");
@@ -153,6 +154,11 @@ class BMWCarModel extends CarModel {
 }
 
 class BenzCarModel extends CarModel {
+
+    public static BenzCarBuilder builder() {
+        return new BenzCarBuilder();
+    }
+
     @Override
     protected void start() {
         System.out.println("Benz starting...");
