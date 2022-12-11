@@ -62,6 +62,7 @@ public class LengthOfLIS {
     }
 
     /**
+     * 300. 最长递增子序列
      * 动态规划
      */
     public static int lengthOfLIS(int[] nums) {
